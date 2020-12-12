@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script src="cah.js"></script>
+<script src="game.js"></script>
+<style>
+.start .hidestart{
+display:none;
+}
+.started .showstart{
+display:none;
+}
+.black{
+display:none;
+}
+.showblack .black{
+display:block;
+}
+
+#whitebutton,.black button{
+background:white;
+color:black;
+font-weight:bold;
+}
+
+#blackbutton{
+background:black;
+color:white;
+font-weight:bold;
+}
+
+#buttons button{
+	font-size:2vh
+}
+
+.card,#blackcard{
+	height: 50vh;
+    border: 3px solid black;
+    width: 32vh;
+    font-family: Arial;
+    font-size: 3vh;
+    padding: 3vh;
+    position: relative;
+    border-radius: 4vh;
+}
+.card button,#blackcard button{
+	position: absolute;
+    bottom: 5vh;
+    font-family: Arial;
+    font-size: 2vh;
+    left: 3vh;
+}
+.card button:nth-child(2),#blackcard button:nth-child(3){
+	bottom: 9vh;
+}
+#blackcard{
+	margin:auto;
+	background:black;
+	color:white;
+}
+#ins{
+	background:white;
+	border-radius:1vh;
+	color:black;
+	margin-top:2vh;
+	padding:1vh;
+}
+.card{
+	margin-right: 2vh;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: bottom;
+}
+
+#cards{
+	margin-top:2vh;
+	clear:both;
+    overflow-y: hidden;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+#msg{
+	clear:both;
+	padding-top:2vh;
+}
+
+canvas{
+	display:none;
+}
+</style>
+<title>Cards Against Humanity (in Toki Pona)</title>
+</head>
+<body onload="restart();return false;" class="start">
+<h1>musi lipu li ike tawa jan ale</h1>
+<div id="gamearea">
+<div id="buttons"><button id="whitebutton" class="hidestart" onclick="white();return false;">o pana e lipu walo</button><button id="blackbutton" class="hidestart" onclick="black();return false;">o pana e lipu pimeja</button><button id="startbutton" class="showstart" onclick="start();return false;">open</button><button id="restart" class="hidestart" onclick="restart();return false;">o weka ale. o sin e musi.</button></div>
+<div id="blackcard" class="hidestart black"><div id="blackcardq"></div><button id="removeblack" onclick="removeblack()">o weka e lipu ni</button><button onclick="print(this,'black');return false;">o pana sitelen e ni</button></div>
+<div id="cards"></div>
+<div id="msg" class="hidestart">lipu walo <span id="whitecount"></span> li awen.<br>lipu pimeja <span id="blackcount"></span> li awen.</div>
+<canvas id="printer" width="192" height="300"></canvas>
+</div>
+</body></html>
